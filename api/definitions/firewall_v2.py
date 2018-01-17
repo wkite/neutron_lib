@@ -76,10 +76,10 @@ RESOURCE_ATTRIBUTE_MAP = {
                        'validate': {'type:values': [4, 6]},
                        'is_visible': True},
         'source_ip_address': {'allow_post': True, 'allow_put': True,
-                              'validate': {'type:ip_or_subnet_or_none': None},
+                              'validate': {'type:ip_or_subnet_or_ip_pools_or_none': None},
                               'is_visible': True, 'default': None},
         'destination_ip_address': {'allow_post': True, 'allow_put': True,
-                                   'validate': {'type:ip_or_subnet_or_none':
+                                   'validate': {'type:ip_or_subnet_or_ip_pools_or_none':
                                                 None},
                                    'is_visible': True, 'default': None},
         'source_port': {'allow_post': True, 'allow_put': True,
