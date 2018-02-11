@@ -17,6 +17,8 @@ from neutron_lib import constants
 FIREWALL_GROUPS = 'firewall_groups'
 FIREWALL_POLICIES = 'firewall_policies'
 FIREWALL_RULES = 'firewall_rules'
+SERVICE_GROUPS = 'service_groups'
+ADDRESS_GROUPS = 'address_groups'
 FIREWALLS = 'firewalls'
 
 FWAAS_ALLOW = "allow"

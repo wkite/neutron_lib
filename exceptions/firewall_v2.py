@@ -175,3 +175,8 @@ class FirewallGroupDefaultAlreadyExists(exceptions.InUse):
     """
     message = _("Default firewall group already exists. 'default' is the "
                 "reserved name for firewall group.")
+
+
+class AddressGroupNotFound(exceptions.NotFound):
+    message = _("Firewall address group %(address_group_id)s could not be found.")
+
