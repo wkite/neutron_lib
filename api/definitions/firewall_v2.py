@@ -63,6 +63,26 @@ RESOURCE_ATTRIBUTE_MAP = {
                          'convert_to': converters.convert_none_to_empty_list,
                          'default': None, 'is_visible': True},
     },
+    api_const.SERVICE_GROUPS: {
+        'id': {'allow_post': False, 'allow_put': False,
+               'validate': {'type:uuid': None},
+               'is_visible': True, 'primary_key': True},
+        'tenant_id': {'allow_post': True, 'allow_put': False,
+                      'required_by_policy': True,
+                      'validate': {'type:string':
+                                       db_const.UUID_FIELD_SIZE},
+                      'is_visible': True},
+        'name': {'allow_post': True, 'allow_put': True,
+                 'validate': {'type:string': db_const.NAME_FIELD_SIZE},
+                 'is_visible': True, 'default': ''},
+        'description': {'allow_post': True, 'allow_put': True,
+                        'validate': {'type:string':
+                                         db_const.DESCRIPTION_FIELD_SIZE},
+                        'is_visible': True, 'default': ''},
+        'ports': {'allow_post': True, 'allow_put': True,
+                  'convert_to': converters.convert_none_to_empty_list,
+                  'is_visible': True, 'default': None},
+    },
     api_const.FIREWALL_RULES: {
         'id': {'allow_post': False, 'allow_put': False,
                'validate': {'type:uuid': None},
