@@ -180,3 +180,7 @@ class FirewallGroupDefaultAlreadyExists(exceptions.InUse):
 class AddressGroupNotFound(exceptions.NotFound):
     message = _("Firewall address group %(address_group_id)s could not be found.")
 
+
+class ServiceGroupNotFound(exceptions.NotFound):
+    message = _("Firewall service group %(service_group_id)s could not be found.")
+
