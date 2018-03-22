@@ -632,13 +632,14 @@ def validate_ip_or_subnet_or_none(data, valid_values=None):
 def validate_ip_pools_or_none(data, valid_values=None):
     # convert strings value to list
     if data is not None:
-        if data.find('-') is not -1:
+        if '-' in data:
             ip_pool = re.split('-', data, maxsplit=1)
-            pool_dict = {}
-            pool_dict['start'] = ip_pool[0]
-            pool_dict['end'] = ip_pool[1]
-            data = [pool_dict]
-        return validate_ip_pools(data, valid_values)
+            data = {'start': ip_pool[0], 'end': ip_pool[1]}
+            try:
+                netaddr.IPRange(data['start'], data['end'])
+            except netaddr.AddrFormatError:
+                return _("'%(data)s' is not a invalid IP pool") % {'data': data}
+        return validate_ip_pools([data], valid_values)
 
 
 def validate_ip_or_subnet_or_ip_pools_or_none(data, valid_values=None):
